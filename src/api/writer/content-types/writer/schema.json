@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "writers",
+  "info": {
+    "singularName": "writer",
+    "pluralName": "writers",
+    "displayName": "Writer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "password": {
+      "type": "password",
+      "minLength": 8,
+      "private": true,
+      "required": true,
+      "maxLength": 32
+    },
+    "profile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "diary": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::diary.diary",
+      "inversedBy": "writer"
+    },
+    "thanks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::thank.thank",
+      "mappedBy": "writer"
+    }
+  }
+}

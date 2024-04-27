@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "thanks",
+  "info": {
+    "singularName": "thank",
+    "pluralName": "thanks",
+    "displayName": "Thank"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "diary": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::diary.diary",
+      "inversedBy": "thanks"
+    },
+    "writer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::writer.writer",
+      "inversedBy": "thanks"
+    }
+  }
+}
